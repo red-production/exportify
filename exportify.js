@@ -171,7 +171,7 @@ var PlaylistRow = React.createClass({
         <td colspan="3">This playlist is not supported</td>
         <td>{this.renderTickCross(playlist.public)}</td>
         <td>{this.renderTickCross(playlist.collaborative)}</td>
-        <td className="text-right">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
     );
     return (
