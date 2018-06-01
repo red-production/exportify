@@ -168,7 +168,7 @@ var PlaylistRow = React.createClass({
       <tr key={this.props.key}>
         <td>{this.renderIcon(playlist)}</td>
         <td>{playlist.name}</td>
-        <td colspan="3">This playlist is not supported</td>
+        <td colSpan="2">This playlist is not supported</td>
         <td>{this.renderTickCross(playlist.public)}</td>
         <td>{this.renderTickCross(playlist.collaborative)}</td>
         <td>&nbsp;</td>
