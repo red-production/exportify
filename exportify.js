@@ -306,13 +306,15 @@ var PlaylistExporter = {
   csvData: function(access_token, playlist) {
     var requests = [];
     var limit = 100;
-
-    for (var offset = 0; offset < playlist.tracks.total; offset = offset + limit) {
-      requests.push(
-        window.Helpers.apiCall(playlist.tracks.href.split('?')[0] + '?offset=' + offset + '&limit=' + limit, access_token)
-      )
+    try{
+      for (var offset = 0; offset < playlist.tracks.total; offset = offset + limit) {
+        requests.push(
+          window.Helpers.apiCall(playlist.tracks.href.split('?')[0] + '?offset=' + offset + '&limit=' + limit, access_token)
+        )
+      }
+    }catch(e){
+      console.log(e)
     }
-
     return $.when.apply($, requests).then(function() {
       var responses = [];
 
