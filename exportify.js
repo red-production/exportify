@@ -313,7 +313,7 @@ var PlaylistExporter = {
         )
       }
     }catch(e){
-      console.log(e)
+      console.log("Skipping playlist '"+playlist.name+"' because it\'s unsupported");
     }
     return $.when.apply($, requests).then(function() {
       var responses = [];
