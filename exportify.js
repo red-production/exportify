@@ -331,7 +331,7 @@ var PlaylistExporter = {
             item.track.artists.map(function(artist) { return artist.name }).join(', '),
             item.track.name,
             item.track.uri,
-            item.track.external_ids.isrc.toUpperCase(),
+            item.track.external_ids.isrc.toUpperCase()
           ].map(function(track) { return '"' + track + '"'; })
         });
       });
@@ -343,7 +343,7 @@ var PlaylistExporter = {
         "Artist Name",
         "Track Name",
         "Spotify URI",
-        "ISRC",
+        "ISRC"
       ]);
 
       csvContent = '';
