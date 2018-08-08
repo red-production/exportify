@@ -328,15 +328,10 @@ var PlaylistExporter = {
       var tracks = responses.map(function(response) {
         return response.items.map(function(item) {
           return [
-            item.track.uri,
-            item.track.name,
             item.track.artists.map(function(artist) { return artist.name }).join(', '),
-            item.track.album.name,
-            item.track.disc_number,
-            item.track.track_number,
-            item.track.duration_ms,
-            item.added_by == null ? '' : item.added_by.uri,
-            item.added_at
+            item.track.name,
+            item.track.uri,
+            item.track.isrc
           ].map(function(track) { return '"' + track + '"'; })
         });
       });
@@ -345,15 +340,10 @@ var PlaylistExporter = {
       tracks = $.map(tracks, function(n) { return n })
 
       tracks.unshift([
-        "Spotify URI",
+        "Spotify Artist",
         "Track Name",
-        "Artist Name",
-        "Album Name",
-        "Disc Number",
-        "Track Number",
-        "Track Duration (ms)",
-        "Added By",
-        "Added At"
+        "Spotify URI",
+        "ISRC"
       ]);
 
       csvContent = '';
