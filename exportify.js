@@ -156,7 +156,6 @@ var PlaylistRow = React.createClass({
     playlist = this.props.playlist
     if(playlist.uri==null) return (
       <tr key={this.props.key}>
-        <td>{this.renderIcon(playlist)}</td>
         <td>{playlist.name}</td>
         <td colSpan="2">This playlist is not supported</td>
         <td>{this.renderTickCross(playlist.public)}</td>
@@ -166,7 +165,6 @@ var PlaylistRow = React.createClass({
     );
     return (
       <tr key={this.props.key}>
-        <td>{this.renderIcon(playlist)}</td>
         <td><a href={playlist.uri}>{playlist.name}</a></td>
         <td><a href={playlist.owner.uri}>{playlist.owner.id}</a></td>
         <td>{playlist.tracks.total}</td>
