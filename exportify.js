@@ -4,8 +4,7 @@ window.Helpers = {
 
     // Use Exportify application client_id if none given
     if (client_id == '') {
-      // client_id = "a7e8d2cc89d64053b596d89a0e7f3ed0"
-       client_id = "b3c7e134d96a47f79cb129d07ef5f98c"
+      client_id = "a7e8d2cc89d64053b596d89a0e7f3ed0"
     }
 
     window.location = "https://accounts.spotify.com/authorize" +
@@ -64,10 +63,7 @@ var PlaylistTable = React.createClass({
       // Show starred playlist if viewing first page
       if (firstPage) {
         return $.when.apply($, [
-          window.Helpers.apiCall(
-            "https://api.spotify.com/v1/users/" + userId + "/starred",
-            this.props.access_token
-          ),
+
           window.Helpers.apiCall(
             "https://api.spotify.com/v1/users/" + userId + "/playlists",
             this.props.access_token
@@ -155,13 +151,6 @@ var PlaylistRow = React.createClass({
     }
   },
 
-  renderIcon: function(playlist) {
-    if (playlist.name == 'Starred') {
-      return <i className="glyphicon glyphicon-star" style={{ color: 'gold' }}></i>;
-    } else {
-      return <i className="fa fa-music"></i>;
-    }
-  },
 
   render: function() {
     playlist = this.props.playlist
@@ -239,13 +228,6 @@ var PlaylistsExporter = {
       var limit = 20;
       var userId = response.id;
 
-      // Initialize requests with starred playlist
-      var requests = [
-        window.Helpers.apiCall(
-          "https://api.spotify.com/v1/users/" + userId + "/starred",
-          access_token
-        )
-      ];
 
       // Add other playlists
       for (var offset = 0; offset < playlistCount; offset = offset + limit) {
